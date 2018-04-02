@@ -1,0 +1,59 @@
+// Fylgja
+// getfylgja.com
+// Licensed under MIT Open Source
+
+@import
+"helpers/unicodes",
+"helpers/str-replace",
+"helpers/font-variant-builder";
+
+@mixin font-face(
+$name,
+$suffix: null,
+$variant: $suffix,
+$unicode: $u-latin,
+$path: '../fonts',
+$file-name: null, // Default = combo from name and suffix
+$formats: (local, woff2, woff),
+$load: swap)
+{
+    @if type-of($name) != string {
+        @error 'Name must be a string value';
+    }
+    @if type-of($suffix) != string {
+        @if type-of($suffix) == 'null' {
+            $variant: 400;
+            $unicode: $u-all;
+        } @else {
+            @error 'Suffix must be a string value';
+        }
+    }
+    $name-spaceless: str-replace(#{$name}, ' ');
+    $full-name: #{$name-spaceless};
+    @if $suffix != null {
+        $suffix-spaceless: str-replace(#{$suffix}, ' ');
+        $full-name: #{$name-spaceless}-#{$suffix-spaceless};
+    }
+    @if $file-name == null {
+        $file-name: $full-name;
+    }
+    @font-face {
+        font-family: '#{$name}';
+        $format-local: null;
+        $format-src: null;
+        @each $format in $formats {
+            @if $format == local {
+                $format-local: local('#{if($suffix == Regular, $name, $name $suffix)}'), local('#{$full-name}'),;
+                @if $suffix == null {
+                    $format-local: local('#{$name}'), local('#{$full-name}'),;
+                }
+            } @else {
+                $format-src: append($format-src, url('#{$path}/#{$file-name}.#{$format}') format('#{$format}'), comma);
+            }
+        }
+        src: if($format-local != null, join($format-local, $format-src), $format-src);
+        unicode-range: $unicode;
+        @include font-variant-builder($variant);
+        font-display: $load;
+    }
+}

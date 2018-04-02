@@ -1,0 +1,13 @@
+// Fylgja
+// getfylgja.com
+// Licensed under MIT Open Source
+
+// Use Google fonts for fonts that are used around the web
+// For unicode info of a font by Google simplely load the url of the font in your browser to see the what the Google font loads, also the unicode is in there
+
+// https://unicode-table.com/en/ was used for our basic options
+$u-all: 'U+0-10FFFF'; // all unicodes (default value for any font-face)
+$u-control-character: '0000—001F';
+$u-latin-basic: 'U+0020−007F'; // Basic English Characters
+$u-latin-supplement: '0080−00FF'; // Additional English Characters
+$u-latin: 'U+0000—00FF'; // Basic setup for any English font
