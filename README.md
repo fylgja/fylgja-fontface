@@ -1,6 +1,8 @@
 # Fylgja - font-face
 
-![Fylgja Package](https://img.shields.io/badge/Fylgja_Package-Font--Face-blue.svg?style=flat-square)
+[![Fylgja Package](https://img.shields.io/badge/Fylgja_Package-Font--Face-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
+![Version](https://img.shields.io/badge/version-v1.0.0-green.svg?style=flat-square)
+[![node-sass](https://img.shields.io/badge/node--sass->=_4.5.3-green.svg?style=flat-square)](https://github.com/sass/node-sass)
 
 This package is not part of the [core framework](https://github.com/GrimLink/fylgja) and can be used without it.
 
