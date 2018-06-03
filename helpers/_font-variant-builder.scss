@@ -14,7 +14,7 @@
                 font-style: normal;
             }
         }
-        @each $name, $weight in ('Thin Italic': 100, 'ExtraLight Italic': 200, 'Light Italic': 300, 'Italic': 400, 'Medium Italic': 500, 'Semibold Italic': 600, 'Bold Italic': 700, 'ExtraBold Italic': 800, 'Black Italic': 900) {
+        @each $name, $weight in ('Thin Italic': 100, 'ExtraLight Italic': 200, 'Light Italic': 300, 'Italic': 400, 'Medium Italic': 500, 'SemiBold Italic': 600, 'Bold Italic': 700, 'ExtraBold Italic': 800, 'Black Italic': 900) {
             @if $variant == $name {
                 font-weight: $weight;
                 font-style: italic;
