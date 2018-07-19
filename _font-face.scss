@@ -5,24 +5,24 @@
 @import
 "helpers/unicodes",
 "helpers/str-replace",
-"helpers/font-variant-builder";
+"helpers/font-styles";
 
 @mixin font-face(
-$name,
-$suffix: null,
-$variant: $suffix,
-$unicode: $u-latin,
-$path: '../fonts',
-$file-name: null, // Default = combo from name and suffix
-$formats: (local, woff2, woff),
-$load: swap)
-{
+    $name,
+    $suffix: null,
+    $styles: $suffix,
+    $unicode: $u-latin,
+    $path: '../fonts',
+    $file-name: null,
+    $formats: (local, woff2, woff),
+    $load: swap
+) {
     @if type-of($name) != string {
         @error 'Name must be a string value';
     }
     @if type-of($suffix) != string {
         @if type-of($suffix) == 'null' {
-            $variant: 400;
+            $styles: 400;
             $unicode: $u-all;
         } @else {
             @error 'Suffix must be a string value';
@@ -53,7 +53,7 @@ $load: swap)
         }
         src: if($format-local != null, join($format-local, $format-src), $format-src);
         unicode-range: $unicode;
-        @include font-variant-builder($variant);
+        @include font-styles($styles);
         font-display: $load;
     }
 }
