@@ -1,7 +1,7 @@
 # Fylgja - font-face
 
 [![Fylgja Package](https://img.shields.io/badge/Fylgja_Package-Font--Face-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
-![Version](https://img.shields.io/badge/version-v1.0.0-green.svg?style=flat-square)
+![Version](https://img.shields.io/badge/version-v1.1.0-green.svg?style=flat-square)
 [![node-sass](https://img.shields.io/badge/node--sass->=_4.5.3-green.svg?style=flat-square)](https://github.com/sass/node-sass)
 
 This package is not part of the [core framework](https://github.com/GrimLink/fylgja) and can be used without it.
@@ -75,7 +75,7 @@ Options      | Default value      | Description
 -------------|--------------------|-------------
 `$name`      |                    | The name of the font.
 `$suffix`    | _null_             | The suffix of the font (example: Bold).
-`$variant`   | $suffix            | The variant (weight/style) of the font. The value will be set automatically via the suffix name if not set. The variant also allows values like `400i`. Which is the same as 400 Italic.
+`$styles`    | $suffix            | The styles (weight/style) of the font. The value will be set automatically via the suffix name if not set. The styles also allows values like `400i`. Which is the same as 400 Italic.
 `$unicode`   | $u-latin           | The unicode range of the the font face. Default is the latin range.
 `$path`      | '../fonts'         | The path to the font file
 `$file-name` | _null_             | The file name of the font. The value will be set automatically via the name + suffix if not set.
@@ -97,7 +97,7 @@ $fonts-roboto: (
     'Bold'
 );
 
-@each $variant in $fonts-roboto {
-    @include font-face('Roboto', $variant);
+@each $styles in $fonts-roboto {
+    @include font-face('Roboto', $styles);
 }
 ```
