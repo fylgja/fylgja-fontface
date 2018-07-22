@@ -1,11 +1,6 @@
 // Fylgja font-face v1.1.0 (getfylgja.com)
 // Licensed under MIT Open Source
 
-@import
-"helpers/unicodes",
-"helpers/str-replace",
-"helpers/font-styles";
-
 /// Helper for font-face mixin
 /// @requires {str-replace | font-variant}
 /// @param {String} $name - Name of font
