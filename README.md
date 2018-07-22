@@ -1,7 +1,7 @@
 # Fylgja - FontFace
 
 [![Fylgja Package](https://img.shields.io/badge/Fylgja-Package-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
-![Version](https://img.shields.io/badge/version-v1.1.0-green.svg?style=flat-square)
+![Version](https://img.shields.io/badge/version-v1.2.0-green.svg?style=flat-square)
 
 _This package is not part of the [core framework](https://github.com/WS-Concepts/Fylgja) and can be used without it._
 
