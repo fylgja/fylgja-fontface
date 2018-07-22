@@ -26,9 +26,9 @@
         @error 'Name must be a string value';
     }
     @if type-of($suffix) != string {
-        @if type-of($suffix) == 'null' {
-            $styles: 400;
-            $unicode: $u-all;
+        @if (type-of($suffix) == 'null')
+        and ($suffix == $styles) {
+            $styles: 'Regular';
         } @else {
             @error 'Suffix must be a string value';
         }
@@ -48,9 +48,9 @@
         $format-src: null;
         @each $format in $formats {
             @if $format == local {
-                $format-local: local('#{if($suffix == Regular, $name, $name $suffix)}'), local('#{$full-name}'),;
+                $format-local: local('#{if($suffix == 'Regular', $name, $name $suffix)}'), local('#{$full-name}'),;
                 @if $suffix == null {
-                    $format-local: local('#{$name}'), local('#{$full-name}'),;
+                    $format-local: local('#{$name}'),;
                 }
             } @else {
                 $format-src: append($format-src, url('#{$path}/#{$file-name}.#{$format}') format('#{$format}'), comma);
