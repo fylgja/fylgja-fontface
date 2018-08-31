@@ -38,19 +38,24 @@ _All the other steps will be created by the mixin automatically (See [config](#c
 ```CSS
 @font-face {
   font-family: "Roboto";
-  src: local("Roboto"), local("Roboto-Regular"),
-       url("../fonts/Roboto-Regular.woff2") format("woff2"),
-       url("../fonts/Roboto-Regular.woff") format("woff");
+  src:
+    local("Roboto"),
+    local("Roboto-Regular"),
+    url("../fonts/Roboto-Regular.woff2") format("woff2"),
+    url("../fonts/Roboto-Regular.woff") format("woff");
   unicode-range: "U+0000—00FF";
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Roboto";
-  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"),
-       url("../fonts/Roboto-BoldItalic.woff2") format("woff2"),
-       url("../fonts/Roboto-BoldItalic.woff") format("woff");
+  src:
+    local("Roboto Bold Italic"),
+    local("Roboto-BoldItalic"),
+    url("../fonts/Roboto-BoldItalic.woff2") format("woff2"),
+    url("../fonts/Roboto-BoldItalic.woff") format("woff");
   unicode-range: "U+0000—00FF";
   font-weight: 700;
   font-style: italic;

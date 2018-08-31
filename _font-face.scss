@@ -1,4 +1,4 @@
-// Fylgja font-face v1.1.0 (getfylgja.com)
+// Fylgja font-face v1.2.1 (getfylgja.com)
 // Licensed under MIT Open Source
 
 /// Helper for font-face mixin
@@ -48,7 +48,8 @@
         $format-src: null;
         @each $format in $formats {
             @if $format == local {
-                $format-local: local('#{if($suffix == 'Regular', $name, $name $suffix)}'), local('#{$full-name}'),;
+                $format-local: local('#{if($suffix == 'Regular', $name, $name $suffix)}'),
+                local('#{$full-name}'),;
                 @if $suffix == null {
                     $format-local: local('#{$name}'),;
                 }

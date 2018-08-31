@@ -1,3 +1,6 @@
+## 1.2.1 - 15-08-18
+* IMP: code style
+
 ## 1.2.0 - 22-07-18
 * IMP: Move helper code to root
 * ADD: lib for easier loading of package

@@ -1,11 +1,11 @@
-// Fylgja font-face v1.1.0 (getfylgja.com)
+// Fylgja font-face v1.2.1 (getfylgja.com)
 // Licensed under MIT Open Source
 
 /// Helper for font-face mixin
 /// @param {String} $styles - pass suffix name of font or styles
 /// @return {String} - Return font weight and style
 @mixin font-styles($styles) {
-    $error-message: 'font-face style option only accepts the value in example: normal(400 italic) or short(400i)';
+    $error-message: 'styles option only accepts values like: 400 italic or 400i';
     @if length($styles) > 2 {
         @error $error-message;
     } @else if $styles == none {
