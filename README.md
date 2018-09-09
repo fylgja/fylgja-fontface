@@ -3,11 +3,7 @@
 [![Fylgja Package](https://img.shields.io/badge/Fylgja-Package-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
 ![Version](https://img.shields.io/badge/version-v1.2.0-green.svg?style=flat-square)
 
-_This package is not part of the [core framework](https://github.com/WS-Concepts/Fylgja) and can be used without it._
-
-## Why use this
-
-The font-face mixin makes it super easy to load fonts.
+The Fylgja font-face mixin makes it super easy to load fonts.
 It will set all required settings for a good font-face automatically.
 Which are still configurable if needed.
 
@@ -15,13 +11,13 @@ Which are still configurable if needed.
 
 First git clone or download the repo to you're project.
 ```bash
-$ git clone git@github.com:WS-Concepts/Fylgja-FontFace.git
+$ git clone git@github.com:WS-Concepts/fylgja-fontface.git
 ```
 
 Include the font-face package in to your code.
 
-```SCSS
-@import "Fylgja-FontFace/lib";
+```scss
+@import "fylgja-fontface/lib";
 ```
 
 To load a font.
@@ -30,12 +26,12 @@ Add your font name + suffix of the font.
 
 _All the other steps will be created by the mixin automatically (See [config](#config))._
 
-```SCSS
+```scss
 @include font-face('Roboto', 'Regular');
 @include font-face('Roboto', 'Bold Italic');
 ```
 
-```CSS
+```css
 @font-face {
   font-family: "Roboto";
   src:
@@ -67,13 +63,22 @@ _All the other steps will be created by the mixin automatically (See [config](#c
 
 There is no real config except the mixin options that you can pass per font.
 
-Most options are filled in, if left to its default value.
+Most options are filled in.
+_if left to its default value._
 
-For this reason it is better to call a specific option instead of changing the complete mixin options until you've reached the option you need to change.
+For this reason it is better to call a specific option. Instead changing the complete mixin options until you've reached the option you need to change.
 
-**Bad way:** `@include font-face('Roboto', 'Regular', 400, $u-latin, '../assets');`
+**Examples;**
 
-**Good way:** `@include font-face('Roboto', 'Regular', $path: '../assets');`
+Bad way:
+```scss
+@include font-face('Roboto', 'Regular', 400, $u-latin, '../assets');
+```
+
+Good way:
+```scss
+@include font-face('Roboto', 'Regular', $path: '../assets');
+```
 
 Options      | Default value      | Description
 -------------|--------------------|-------------
@@ -94,7 +99,7 @@ _If an option is missing. Plz leave a feature request._
 
 You can load the entire Roboto font stack via a foreach loop.
 
-```SCSS
+```scss
 $fonts-roboto: (
     'Light',
     'Light Italic',
@@ -119,7 +124,7 @@ Simply call the mixin as describe above but leave the suffix field to its defaul
 
 Or use the suffix value of `'Regular'`
 
-```SCSS
+```scss
 @include font-face('Material Icons', 'Regular', $unicode: $u-all);
 ```
 
