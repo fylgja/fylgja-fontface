@@ -1,7 +1,7 @@
 # Fylgja - FontFace
 
 [![Fylgja Package](https://img.shields.io/badge/Fylgja-Package-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
-![Version](https://img.shields.io/badge/version-v1.2.0-green.svg?style=flat-square)
+![Version](https://img.shields.io/badge/version-v1.2.1-green.svg?style=flat-square)
 
 The Fylgja font-face mixin makes it super easy to load fonts.
 It will set all required settings for a good font-face automatically.
@@ -11,7 +11,7 @@ Which are still configurable if needed.
 
 First git clone or download the repo to you're project.
 ```bash
-$ git clone git@github.com:WS-Concepts/fylgja-fontface.git
+$ git clone git@github.com:Siteation/fylgja-fontface.git
 ```
 
 Include the font-face package in to your code.
