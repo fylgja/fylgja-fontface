@@ -1,23 +1,23 @@
 # Fylgja - FontFace
 
 [![Fylgja Package](https://img.shields.io/badge/Fylgja-Package-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
-![Version](https://img.shields.io/badge/version-v1.2.1-green.svg?style=flat-square)
+[![NPM version](https://img.shields.io/npm/v/@fylgja/fontface.svg)](https://www.npmjs.org/package/@fylgja/fontface)
 
 The Fylgja font-face mixin makes it super easy to load fonts.
 It will set all required settings for a good font-face automatically.
 Which are still configurable if needed.
 
-## How to use
+## Installation
 
-First git clone or download the repo to you're project.
 ```bash
-$ git clone git@github.com:Siteation/fylgja-fontface.git
+npm i @fylgja/fontface
 ```
 
+## How to use
 Include the font-face package in to your code.
 
 ```scss
-@import "fylgja-fontface/lib";
+@import "@fylgja/fontface/lib";
 ```
 
 To load a font.
@@ -27,8 +27,8 @@ Add your font name + suffix of the font.
 _All the other steps will be created by the mixin automatically (See [config](#config))._
 
 ```scss
-@include font-face('Roboto', 'Regular');
-@include font-face('Roboto', 'Bold Italic');
+@include font-face("Roboto", "Regular");
+@include font-face("Roboto", "Bold Italic");
 ```
 
 ```css
@@ -72,24 +72,25 @@ For this reason it is better to call a specific option. Instead changing the com
 
 Bad way:
 ```scss
-@include font-face('Roboto', 'Regular', 400, $u-latin, '../assets');
+@include font-face("Roboto", "Regular", 400, $u-latin, "../assets");
 ```
 
 Good way:
 ```scss
-@include font-face('Roboto', 'Regular', $path: '../assets');
+@include font-face("Roboto", "Regular", $path: "../assets");
 ```
 
-Options      | Default value      | Description
--------------|--------------------|-------------
-`$name`      |                    | The name of the font.
-`$suffix`    | _null_             | The suffix of the font (example: Bold).
-`$styles`    | $suffix            | The styles (weight/style) of the font. The value will be set automatically via the suffix name if not set. The styles also allows values like `400i`. Which is the same as 400 Italic.
-`$unicode`   | $u-latin           | The unicode range of the the font face.
-`$path`      | '../fonts'         | The path to the font file
-`$file-name` | _null_             | The file name of the font. The value will be set automatically via the name + suffix if not set.
-`$formats`   | local, woff2, woff | The file formats of the font-face.
-`$load`      | swap               | The loading option of the font ([See the Mozila Doc for more info](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display))
+| Options      | Default value      | Description                         |
+| ------------ | ------------------ | ----------------------------------- |
+| `$name`      |                    | Name of the font                    |
+| `$suffix`    | _null_             | Suffix of the font (example: Bold). |
+| `$styles`    | $suffix            | Styles of the font (example: 700i)  |
+| `$unicode`   | $u-latin           | Unicode range of the the font face. |
+| `$path`      | '../fonts'         | Path to the font file               |
+| `$file-name` | _null_             | File name of the font               |
+| `$formats`   | local, woff2, woff | The file formats of the font-face.  |
+| `$load`      | swap               | Loading option of the font          |
+_If an option NULL it will be filled in by the font-face_
 
 _If an option is missing. Plz leave a feature request._
 
@@ -101,15 +102,15 @@ You can load the entire Roboto font stack via a foreach loop.
 
 ```scss
 $fonts-roboto: (
-    'Light',
-    'Light Italic',
-    'Regular',
-    'Italic',
-    'Bold'
+    "Light",
+    "Light Italic",
+    "Regular",
+    "Italic",
+    "Bold"
 );
 
 @each $styles in $fonts-roboto {
-    @include font-face('Roboto', $styles);
+    @include font-face("Roboto", $styles);
 }
 ```
 
@@ -119,13 +120,13 @@ You can use this mixin to also load font icon libraries.
 Simply call the mixin as describe above but leave the suffix field to its default value of _null_
 
 ```SCSS
-@include font-face('FontAwesome', $unicode: $u-all);
+@include font-face("FontAwesome", $unicode: $u-all);
 ```
 
 Or use the suffix value of `'Regular'`
 
 ```scss
-@include font-face('Material Icons', 'Regular', $unicode: $u-all);
+@include font-face("Material Icons", "Regular", $unicode: $u-all);
 ```
 
 This will set by default the:
