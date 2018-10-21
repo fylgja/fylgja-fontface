@@ -1,11 +1,11 @@
-// Fylgja font-face v1.2.1 (getfylgja.com)
+// Fylgja (getfylgja.com)
 // Licensed under MIT Open Source
 
 /// Helper for font-face mixin
 /// @param {String} $styles - pass suffix name of font or styles
 /// @return {String} - Return font weight and style
 @mixin font-styles($styles) {
-    $error-message: 'styles option only accepts values like: 400 italic or 400i';
+    $error-message: "styles option only accepts values like: 400 italic or 400i";
     @if length($styles) > 2 {
         @error $error-message;
     } @else if $styles == none {
@@ -13,32 +13,32 @@
     } @else if type-of(nth($styles, 1)) != number {
         // Load styles via name
         @each $name, $weight in (
-            'Thin': 100,
-            'ExtraLight': 200,
-            'Light': 300,
-            'Regular': 400,
-            'Medium': 500,
-            'SemiBold': 600,
-            'Bold': 700,
-            'ExtraBold': 800,
-            'Black': 900
-        ) {
+                "Thin": 100,
+                "ExtraLight": 200,
+                "Light": 300,
+                "Regular": 400,
+                "Medium": 500,
+                "SemiBold": 600,
+                "Bold": 700,
+                "ExtraBold": 800,
+                "Black": 900
+            ) {
             @if $styles == $name {
                 font-weight: $weight;
                 font-style: normal;
             }
         }
         @each $name, $weight in (
-            'Thin Italic': 100,
-            'ExtraLight Italic': 200,
-            'Light Italic': 300,
-            'Italic': 400,
-            'Medium Italic': 500,
-            'SemiBold Italic': 600,
-            'Bold Italic': 700,
-            'ExtraBold Italic': 800,
-            'Black Italic': 900
-        ) {
+                "Thin Italic": 100,
+                "ExtraLight Italic": 200,
+                "Light Italic": 300,
+                "Italic": 400,
+                "Medium Italic": 500,
+                "SemiBold Italic": 600,
+                "Bold Italic": 700,
+                "ExtraBold Italic": 800,
+                "Black Italic": 900
+            ) {
             @if $styles == $name {
                 font-weight: $weight;
                 font-style: italic;
@@ -58,7 +58,7 @@
         $weight: $styles;
         @if unitless($styles) == false {
             // check if the value has an 'i'
-            $weight: str-replace(#{$styles}, 'i');
+            $weight: str-replace(#{$styles}, "i");
             $style: italic;
         }
         font-weight: $weight;

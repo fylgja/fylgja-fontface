@@ -1,8 +1,8 @@
-// Fylgja font-face v1.2.1 (getfylgja.com)
+// Fylgja (getfylgja.com)
 // Licensed under MIT Open Source
 
-@import // loads all code for the package
-"unicodes",
-"str-replace",
-"font-styles",
-"font-face";
+// loads all code for the package
+@import "unicodes";
+@import "str-replace";
+@import "font-styles";
+@import "font-face";

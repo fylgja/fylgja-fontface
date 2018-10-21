@@ -1,4 +1,4 @@
-// Fylgja font-face v1.2.1 (getfylgja.com)
+// Fylgja (getfylgja.com)
 // Licensed under MIT Open Source
 
 /// Helper for font-face mixin
@@ -17,47 +17,54 @@
     $suffix: null,
     $styles: $suffix,
     $unicode: $u-latin,
-    $path: '../fonts',
+    $path: "../fonts",
     $file-name: null,
     $formats: (local, woff2, woff),
     $load: swap
 ) {
     @if type-of($name) != string {
-        @error 'Name must be a string value';
+        @error "Name must be a string value";
     }
     @if type-of($suffix) != string {
-        @if (type-of($suffix) == 'null')
-        and ($suffix == $styles) {
-            $styles: 'Regular';
+        @if (type-of($suffix) == "null") and ($suffix == $styles) {
+            $styles: "Regular";
         } @else {
-            @error 'Suffix must be a string value';
+            @error "Suffix must be a string value";
         }
     }
-    $name-spaceless: str-replace(#{$name}, ' ');
+    $name-spaceless: str-replace(#{$name}, " ");
     $full-name: #{$name-spaceless};
     @if $suffix != null {
-        $suffix-spaceless: str-replace(#{$suffix}, ' ');
+        $suffix-spaceless: str-replace(#{$suffix}, " ");
         $full-name: #{$name-spaceless}-#{$suffix-spaceless};
     }
     @if $file-name == null {
         $file-name: $full-name;
     }
     @font-face {
-        font-family: '#{$name}';
+        font-family: "#{$name}";
         $format-local: null;
         $format-src: null;
         @each $format in $formats {
             @if $format == local {
-                $format-local: local('#{if($suffix == 'Regular', $name, $name $suffix)}'),
-                local('#{$full-name}'),;
+                $format-local:
+                    local("#{if($suffix == "Regular", $name, $name $suffix)}"),
+                    local("#{$full-name}");
                 @if $suffix == null {
-                    $format-local: local('#{$name}'),;
+                    $format-local: local("#{$name}");
                 }
             } @else {
-                $format-src: append($format-src, url('#{$path}/#{$file-name}.#{$format}') format('#{$format}'), comma);
+                $format-src: append(
+                    $format-src,
+                    url("#{$path}/#{$file-name}.#{$format}") format("#{$format}"),
+                    comma);
             }
         }
-        src: if($format-local != null, join($format-local, $format-src), $format-src);
+        @if ($format-local != null) {
+            src: join($format-local, $format-src);
+        } @else {
+            src: $format-src;
+        }
         unicode-range: $unicode;
         @include font-styles($styles);
         font-display: $load;

@@ -1,4 +1,4 @@
-// Fylgja font-face v1.2.1 (getfylgja.com)
+// Fylgja (getfylgja.com)
 // Licensed under MIT Open Source
 
 // Use Google fonts for fonts that are used around the web
@@ -8,8 +8,8 @@
 // The unicode is in there
 
 // https://unicode-table.com/en/ was used for our basic options
-$u-all: 'U+0-10FFFF'; // all unicodes (default value for any font-face)
-$u-control-character: '0000—001F';
-$u-latin-basic: 'U+0020−007F'; // Basic English Characters
-$u-latin-supplement: '0080−00FF'; // Additional English Characters
-$u-latin: 'U+0000—00FF'; // Basic setup for any English font
+$u-all: "U+0-10FFFF"; // all unicodes (default value for any font-face)
+$u-control-character: "0000—001F";
+$u-latin-basic: "U+0020−007F"; // Basic English Characters
+$u-latin-supplement: "0080−00FF"; // Additional English Characters
+$u-latin: "U+0000—00FF"; // Basic setup for any English font
