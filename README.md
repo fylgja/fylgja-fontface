@@ -1,6 +1,6 @@
 # Fylgja - FontFace
 
-[![Fylgja Package](https://img.shields.io/badge/Fylgja-Package-blue.svg?style=flat-square)](https://github.com/topics/fylgja-package)
+[![Fylgja Package](https://img.shields.io/badge/fylgja-package-blue.svg)](https://github.com/topics/fylgja-package)
 [![NPM version](https://img.shields.io/npm/v/@fylgja/fontface.svg)](https://www.npmjs.org/package/@fylgja/fontface)
 
 The Fylgja font-face mixin makes it super easy to load fonts.
