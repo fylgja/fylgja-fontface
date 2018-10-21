@@ -90,7 +90,7 @@ Good way:
 | `$file-name` | _null_             | File name of the font               |
 | `$formats`   | local, woff2, woff | The file formats of the font-face.  |
 | `$load`      | swap               | Loading option of the font          |
-_If an option NULL it will be filled in by the font-face_
+_If an option is NULL it will be filled in by the font-face defauls_
 
 _If an option is missing. Plz leave a feature request._
 
