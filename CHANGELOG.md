@@ -1,3 +1,9 @@
+## 1.2.2 - 21-10-18
+* DOC: change owner to Fylgja
+* ADD: package.json for npm install option
+* DOC: add install step for npm in readme
+* format strings to double quotes as per @fylgja/stylelint-config
+
 ## 1.2.1 - 15-08-18
 * IMP: code style
 
