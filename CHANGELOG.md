@@ -1,3 +1,9 @@
+## 2.0.0 - 05-01-19
+* DOC: Change url for scss import path in readme
+* DEL: unicode file to add less scss var's in a code base that might conflict
+* DEL: lib import scss file in favour of module file call
+* DOC: improved keywords
+
 ## 1.2.2 - 21-10-18
 * DOC: change owner to Fylgja
 * ADD: package.json for npm install option
