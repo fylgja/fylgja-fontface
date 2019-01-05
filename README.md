@@ -132,3 +132,6 @@ This will set by default the:
 You must still set the `$unicode`,
 since icon libraries have a diffrent one than just Latin.
 The default for the unicode is `U+0-10FFFF` which is all unicodes.
+
+## License
+[MIT](LICENSE) © [Fylgja](https://getfylgja.com/)
