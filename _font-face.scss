@@ -1,8 +1,9 @@
 // Fylgja (getfylgja.com)
 // Licensed under MIT Open Source
 
-/// Helper for font-face mixin
-/// @requires {str-replace | font-variant}
+@import "str-replace";
+@import "font-styles";
+
 /// @param {String} $name - Name of font
 /// @param {String} $suffix - [null] Suffix of font
 /// @param {String} $styles - [$suffix] Styles for font (weight & style)
@@ -13,60 +14,62 @@
 /// @param {string} $load - [swap] The loading option of the font
 /// @return {String} - Return font weight and style
 @mixin font-face(
-    $name,
-    $suffix: null,
-    $styles: $suffix,
-    $unicode: $u-latin,
-    $path: "../fonts",
-    $file-name: null,
-    $formats: (local, woff2, woff),
-    $load: swap
+  $name,
+  $suffix: null,
+  $styles: $suffix,
+  $unicode: "U+0000—00FF",
+  $path: "../fonts",
+  $file-name: null,
+  $formats: (local, woff2, woff),
+  $load: swap
 ) {
-    @if type-of($name) != string {
-        @error "Name must be a string value";
+  @if type-of($name) != string {
+    @error "Name must be a string value";
+  }
+  @if type-of($suffix) != string {
+    @if (type-of($suffix) == "null") and ($suffix == $styles) {
+      $styles: "Regular";
+    } @else {
+      @error "Suffix must be a string value";
     }
-    @if type-of($suffix) != string {
-        @if (type-of($suffix) == "null") and ($suffix == $styles) {
-            $styles: "Regular";
-        } @else {
-            @error "Suffix must be a string value";
+  }
+  $name-spaceless: str-replace(#{$name}, " ");
+  $full-name: #{$name-spaceless};
+  @if $suffix != null {
+    $suffix-spaceless: str-replace(#{$suffix}, " ");
+    $full-name: #{$name-spaceless}-#{$suffix-spaceless};
+  }
+  @if $file-name == null {
+    $file-name: $full-name;
+  }
+  @font-face {
+    font-family: "#{$name}";
+    $format-local: null;
+    $format-src: null;
+    @each $format in $formats {
+      @if $format == local {
+        $format-local: local(
+            "#{if($suffix == "Regular", $name, $name $suffix)}"
+          ),
+          local("#{$full-name}");
+        @if $suffix == null {
+          $format-local: local("#{$name}");
         }
+      } @else {
+        $format-src: append(
+          $format-src,
+          url("#{$path}/#{$file-name}.#{$format}") format("#{$format}"),
+          comma
+        );
+      }
     }
-    $name-spaceless: str-replace(#{$name}, " ");
-    $full-name: #{$name-spaceless};
-    @if $suffix != null {
-        $suffix-spaceless: str-replace(#{$suffix}, " ");
-        $full-name: #{$name-spaceless}-#{$suffix-spaceless};
+    @if ($format-local != null) {
+      src: join($format-local, $format-src);
+    } @else {
+      src: $format-src;
     }
-    @if $file-name == null {
-        $file-name: $full-name;
-    }
-    @font-face {
-        font-family: "#{$name}";
-        $format-local: null;
-        $format-src: null;
-        @each $format in $formats {
-            @if $format == local {
-                $format-local:
-                    local("#{if($suffix == "Regular", $name, $name $suffix)}"),
-                    local("#{$full-name}");
-                @if $suffix == null {
-                    $format-local: local("#{$name}");
-                }
-            } @else {
-                $format-src: append(
-                    $format-src,
-                    url("#{$path}/#{$file-name}.#{$format}") format("#{$format}"),
-                    comma);
-            }
-        }
-        @if ($format-local != null) {
-            src: join($format-local, $format-src);
-        } @else {
-            src: $format-src;
-        }
-        unicode-range: $unicode;
-        @include font-styles($styles);
-        font-display: $load;
-    }
+    unicode-range: $unicode;
+    @include font-styles($styles);
+    font-display: $load;
+  }
 }

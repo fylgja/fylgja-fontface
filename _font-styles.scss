@@ -5,9 +5,9 @@
 /// @param {String} $styles - pass suffix name of font or styles
 /// @return {String} - Return font weight and style
 @mixin font-styles($styles) {
-    $error-message: "styles option only accepts values like: 400 italic or 400i";
+    $error: "styles option only accepts values like: 400 italic or 400i";
     @if length($styles) > 2 {
-        @error $error-message;
+        @error $error;
     } @else if $styles == none {
         // Return no styles
     } @else if type-of(nth($styles, 1)) != number {
@@ -47,7 +47,7 @@
     } @else if length($styles) == 2 {
         // Load styles via default naming
         @if (nth($styles, 2) != normal) and (nth($styles, 2) != italic) {
-            @error $error-message;
+            @error $error;
         }
         font-weight: nth($styles, 1);
         font-style: nth($styles, 2);
