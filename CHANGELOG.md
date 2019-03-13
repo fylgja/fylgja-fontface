@@ -1,3 +1,6 @@
+## 2.0.1 - 13-03-19
+* IMP: formating to meet linting requirements
+
 ## 2.0.0 - 05-01-19
 * DOC: Change url for scss import path in readme
 * DEL: unicode file to add less scss var's in a code base that might conflict
