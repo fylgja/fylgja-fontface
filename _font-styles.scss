@@ -12,7 +12,8 @@
         // Return no styles
     } @else if type-of(nth($styles, 1)) != number {
         // Load styles via name
-        @each $name, $weight in (
+        $map-styles: (
+            normal: (
                 "Thin": 100,
                 "ExtraLight": 200,
                 "Light": 300,
@@ -22,13 +23,8 @@
                 "Bold": 700,
                 "ExtraBold": 800,
                 "Black": 900
-            ) {
-            @if $styles == $name {
-                font-weight: $weight;
-                font-style: normal;
-            }
-        }
-        @each $name, $weight in (
+            ),
+            italic: (
                 "Thin Italic": 100,
                 "ExtraLight Italic": 200,
                 "Light Italic": 300,
@@ -38,7 +34,15 @@
                 "Bold Italic": 700,
                 "ExtraBold Italic": 800,
                 "Black Italic": 900
-            ) {
+            )
+        );
+        @each $name, $weight in map-get($map-styles, normal) {
+            @if $styles == $name {
+                font-weight: $weight;
+                font-style: normal;
+            }
+        }
+        @each $name, $weight in map-get($map-styles, italic) {
             @if $styles == $name {
                 font-weight: $weight;
                 font-style: italic;
