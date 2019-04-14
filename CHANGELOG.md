@@ -1,3 +1,8 @@
+# Changelog
+
+## 2.0.2 14-04-19
+* ADD: title to changelog
+
 ## 2.0.1 - 13-03-19
 * IMP: formating to meet linting requirements
 
