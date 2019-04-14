@@ -1,6 +1,6 @@
 {
   "name": "@fylgja/fontface",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Generate a full fledged css @font-face using only the name and suffix of a font family via the Fylgja SCSS fontface function",
   "homepage": "http://getfylgja.com/",
   "author": "Fylgja",
