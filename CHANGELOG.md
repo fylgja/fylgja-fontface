@@ -3,7 +3,7 @@
 ## 2.0.3 - 19-05-19
 * IMP: Git URL Changed
 
-## 2.0.2 14-04-19
+## 2.0.2 - 14-04-19
 * ADD: title to changelog
 * IMP: formating
 * ADD: faq to readme
