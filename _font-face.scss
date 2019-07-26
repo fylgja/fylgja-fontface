@@ -12,7 +12,7 @@
 /// @param {String} $file-name - [null] file name, null = $name + $suffix
 /// @param {list} $formats - [(local, woff2, woff)] list of file types
 /// @param {string} $load - [swap] The loading option of the font
-/// @return {String} - Return font weight and style
+/// @return {*} - Return font weight and style
 @mixin font-face(
     $name,
     $suffix: null,
@@ -23,10 +23,10 @@
     $formats: (local, woff2, woff),
     $load: swap
 ) {
-    @if type-of($name) != string {
+    @if (type-of($name) != string) {
         @error "Name must be a string value";
     }
-    @if type-of($suffix) != string {
+    @if (type-of($suffix) != string) {
         @if (type-of($suffix) == "null") and ($suffix == $styles) {
             $styles: "Regular";
         } @else {
@@ -35,13 +35,14 @@
     }
     $name-spaceless: str-replace(#{$name}, " ");
     $full-name: #{$name-spaceless};
-    @if $suffix != null {
+    @if ($suffix != null) {
         $suffix-spaceless: str-replace(#{$suffix}, " ");
         $full-name: #{$name-spaceless}-#{$suffix-spaceless};
     }
-    @if $file-name == null {
+    @if ($file-name == null) {
         $file-name: $full-name;
     }
+
     @font-face {
         font-family: "#{$name}";
         $format-local: null;

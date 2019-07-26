@@ -13,7 +13,8 @@ npm i -D @fylgja/fontface
 ```
 
 ## How to use
-Include the font-face package in to your code.
+
+Include the font-face package in to your code via;
 
 ```scss
 @import "@fylgja/fontface/font-face";

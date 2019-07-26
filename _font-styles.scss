@@ -3,14 +3,15 @@
 
 /// Helper for font-face mixin
 /// @param {String} $styles - pass suffix name of font or styles
-/// @return {String} - Return font weight and style
+/// @return {*} - Return font weight and style
 @mixin font-styles($styles) {
     $error: "styles option only accepts values like: 400 italic or 400i";
-    @if length($styles) > 2 {
+
+    @if (length($styles) > 2) {
         @error $error;
-    } @else if $styles == none {
+    } @else if ($styles == none) {
         // Return no styles
-    } @else if type-of(nth($styles, 1)) != number {
+    } @else if (type-of(nth($styles, 1)) != number) {
         // Load styles via name
         $map-styles: (
             normal: (
@@ -37,35 +38,29 @@
             )
         );
         @each $name, $weight in map-get($map-styles, normal) {
-            @if $styles == $name {
+            @if ($styles == $name) {
                 font-weight: $weight;
                 font-style: normal;
             }
         }
         @each $name, $weight in map-get($map-styles, italic) {
-            @if $styles == $name {
+            @if ($styles == $name) {
                 font-weight: $weight;
                 font-style: italic;
             }
         }
-    } @else if length($styles) == 2 {
+    } @else if (length($styles) == 2) {
         // Load styles via default naming
-        @if (nth($styles, 2) != normal) and (nth($styles, 2) != italic) {
-            @error $error;
-        }
         font-weight: nth($styles, 1);
         font-style: nth($styles, 2);
     } @else {
-        // Load styles as just weight
-        // or with shorthand version
-        $style: normal;
-        $weight: $styles;
-        @if unitless($styles) == false {
-            // check if the value has an 'i'
-            $weight: str-replace(#{$styles}, "i");
-            $style: italic;
-        }
-        font-weight: $weight;
-        font-style: $style;
+        // Load styles as just weight or with shorthand version
+        font-weight:
+            if(
+                unitless($styles) == false,
+                str-replace(#{$styles}, "i"),
+                $styles
+            );
+        font-style: if(unitless($styles) == false, italic, normal);
     }
 }
