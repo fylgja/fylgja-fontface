@@ -1,3 +1,9 @@
+# Changelog
+
+## 2.1.0 - (2019-08-11)
+* ADD: importing via [index.scss](https://sass-lang.com/documentation/at-rules/import#index-files)
+* IMP: update doc & pkg
+
 ## 2.0.1 - 13-03-19
 * IMP: formating to meet linting requirements
 

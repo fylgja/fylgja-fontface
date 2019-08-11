@@ -3,8 +3,20 @@
 [![NPM version](https://img.shields.io/npm/v/@fylgja/fontface.svg)](https://www.npmjs.org/package/@fylgja/fontface)
 
 The Fylgja font-face mixin makes it super easy to load fonts.
+
 It will set all required settings for a good font-face automatically.
 Which are still configurable if needed.
+
+<details><summary>Table of Contents</summary>
+
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Config](#config)
+- [Tips](#tips)
+  - [Loop](#loop)
+  - [Icons](#icons)
+
+</details>
 
 ## Installation
 
@@ -16,7 +28,8 @@ npm i -D @fylgja/fontface
 Include the font-face package in to your code.
 
 ```scss
-@import "@fylgja/fontface/font-face";
+// scss (DartSass) (LibSass >= 3.6.0)
+@import "@fylgja/fontface";
 ```
 
 To load a font.
@@ -132,6 +145,3 @@ This will set by default the:
 You must still set the `$unicode`,
 since icon libraries have a diffrent one than just Latin.
 The default for the unicode is `U+0-10FFFF` which is all unicodes.
-
-## License
-[MIT](LICENSE) © [Fylgja](https://getfylgja.com/)

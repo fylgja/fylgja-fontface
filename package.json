@@ -1,18 +1,22 @@
 {
   "name": "@fylgja/fontface",
   "version": "2.0.1",
-  "description": "Generate a full fledged css @font-face using only the name and suffix of a font family via the Fylgja SCSS fontface function",
+  "description": "Generate a full fledged css @font-face using only the name and suffix",
   "homepage": "http://getfylgja.com/",
   "author": "Fylgja",
   "license": "MIT",
+  "sass": "_index.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fylgja/fylgja-fontface"
+  },
+  "bugs": {
+    "url": "https://github.com/fylgja/fylgja-fontface/issues"
+  },
   "keywords": [
     "fylgja",
     "scss",
     "functions",
     "@font-face"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/getfylgja/fylgja-fontface.git"
-  }
+  ]
 }
