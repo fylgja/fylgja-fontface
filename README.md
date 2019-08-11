@@ -15,6 +15,7 @@ Which are still configurable if needed.
 - [Tips](#tips)
   - [Loop](#loop)
   - [Icons](#icons)
+- [FAQ](#faq)
 
 </details>
 
@@ -25,7 +26,8 @@ npm i -D @fylgja/fontface
 ```
 
 ## How to use
-Include the font-face package in to your code.
+
+Include the font-face package in to your code via;
 
 ```scss
 // scss (DartSass) (LibSass >= 3.6.0)
@@ -98,7 +100,7 @@ Good way:
 | `$formats`   | local, woff2, woff | The file formats of the font-face.  |
 | `$load`      | swap               | Loading option of the font          |
 
-_If an option is NULL it will be filled in by the font-face defauls_
+_If an option is NULL it will be filled in by the font-face defaults_
 
 _If an option is missing. Plz leave a feature request._
 
@@ -145,3 +147,24 @@ This will set by default the:
 You must still set the `$unicode`,
 since icon libraries have a diffrent one than just Latin.
 The default for the unicode is `U+0-10FFFF` which is all unicodes.
+
+## FAQ
+
+<details><summary>Why is the name different from the file</summary>
+
+This is a little thing that came with the first publish.
+Sadly this is stuck to the repo.
+
+But I am not planing to change this
+Since then I have to deprecate this one and republish a new font-face repo.
+
+</details>
+
+<details><summary>How do I use this with Variable Fonts</summary>
+
+If you are planing to use variable fonts you don't need this.
+
+This makes loading font-families easier
+and is over kill for just one font-face.
+
+</details>
