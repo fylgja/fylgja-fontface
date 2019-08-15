@@ -32,6 +32,8 @@ Include the font-face package in to your code via;
 ```scss
 // scss (DartSass) (LibSass >= 3.6.0)
 @import "@fylgja/fontface";
+// scss (older option)
+@import "@fylgja/fontface/index";
 ```
 
 To load a font.
