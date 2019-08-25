@@ -29,11 +29,11 @@ npm i -D @fylgja/fontface
 
 Include the font-face package in to your code via;
 
-```scss
-// scss (DartSass) (LibSass >= 3.6.0)
-@import "@fylgja/fontface";
-// scss (older option)
-@import "@fylgja/fontface/index";
+Include the utilkit package in to your code via;
+
+```scss 
+@import "@fylgja/fontface"; // (DartSass, LibSass 3.6)
+@import "@fylgja/fontface/index"; // old way
 ```
 
 To load a font.
